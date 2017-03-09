@@ -1,0 +1,11 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "e73c2585296fa438b96618eeb77f9d50"
+build_time: [542347533, 865454000]
+inputs:
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/MovieDetailVC.swift": [542346647, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/MovieCell.swift": [542340316, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/MainViewController.swift": [542345291, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/AppDelegate.swift": [542346069, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/SwiftyJSON.swift": [541662910, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/Movie.swift": [542315094, 0]
+  "/Users/wenzhen/Documents/Dev/Movie/Movie/FavoriteTableViewController.swift": [542347531, 0]
