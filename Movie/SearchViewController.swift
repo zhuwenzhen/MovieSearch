@@ -8,13 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, favoritesUpdating {
     // MARK: - Properties
     var movies: [Movie] = []
     var thePosterCache: [UIImage] = []
     
      @IBOutlet weak var searchBar: UISearchBar!
      @IBOutlet weak var tableView: UITableView!
+    
+    var delegate: favoritesUpdating?
 
     // MARK: - View Set up
     override func viewDidLoad() {
@@ -27,6 +29,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updatefavorites() {
+        delegate?.updatefavorites()
     }
     
     private func cacheImages() {
@@ -55,6 +61,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMovieDetail" {
             if let destinationVC = segue.destination as? MovieDetailVC {
+                destinationVC.delegate = self
                 if let movie = sender as? Movie {
                     destinationVC.movie = movie
                 }
@@ -79,7 +86,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     private func getJSON(path: String) -> JSON{
         guard let url = URL(string: path) else {return JSON.null}
-        
         do{
             let data = try Data(contentsOf: url)
             return JSON(data: data)
