@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, favoritesUpdating {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, favoritesUpdating {
     // MARK: - Properties
     var movies: [Movie] = []
     var thePosterCache: [UIImage] = []

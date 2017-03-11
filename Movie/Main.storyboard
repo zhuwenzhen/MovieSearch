@@ -40,20 +40,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="blank_movie_poster" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-nX-6js">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-nX-6js">
                                                     <rect key="frame" x="8" y="8" width="88" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="103.5" id="0j3-if-RyI"/>
                                                         <constraint firstAttribute="width" constant="88" id="fII-Jl-eSn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Iron man" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59K-bz-glU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59K-bz-glU">
                                                     <rect key="frame" x="104" y="30" width="263" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2008" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-Jg-PCe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-Jg-PCe">
                                                     <rect key="frame" x="104" y="59" width="263" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="F2K-jD-he0"/>
@@ -90,23 +90,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6q-Hh-ix9">
-                                <rect key="frame" x="146" y="72" width="83" height="30"/>
-                                <color key="backgroundColor" red="0.182457542" green="0.58658935180000005" blue="0.9791329339" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="update">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateFavoriteView:" destination="LHc-9G-dfz" eventType="touchUpInside" id="FMz-u3-3DM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="P6q-Hh-ix9" firstAttribute="top" secondItem="Lfm-Np-DWa" secondAttribute="bottom" constant="8" id="Aa5-M3-qCq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P6q-Hh-ix9" secondAttribute="trailing" constant="130" id="RkA-HN-Lrf"/>
-                            <constraint firstItem="P6q-Hh-ix9" firstAttribute="leading" secondItem="Qpg-MG-vF9" secondAttribute="leadingMargin" constant="130" id="ZRm-J8-Dnc"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorite Movies" id="quD-Gf-bY7"/>
                     <connections>
@@ -120,7 +105,7 @@
         <!--Movie Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MainViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -357,8 +342,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bVN-kc-TGT" firstAttribute="top" secondItem="tAH-zs-u6R" secondAttribute="bottom" id="4LH-zI-bQa"/>
                             <constraint firstItem="tAH-zs-u6R" firstAttribute="leading" secondItem="RV8-yq-DvO" secondAttribute="leading" id="7Zh-vX-Ce4"/>
+                            <constraint firstItem="tAH-zs-u6R" firstAttribute="top" secondItem="89n-H2-8k1" secondAttribute="bottom" id="HQO-oM-3WB"/>
                             <constraint firstItem="tAH-zs-u6R" firstAttribute="bottom" secondItem="bVN-kc-TGT" secondAttribute="top" id="PYz-k5-Mgc"/>
+                            <constraint firstItem="tAH-zs-u6R" firstAttribute="leading" secondItem="RV8-yq-DvO" secondAttribute="leading" id="TBl-Oe-sWO"/>
+                            <constraint firstAttribute="trailing" secondItem="tAH-zs-u6R" secondAttribute="trailing" id="awG-RJ-5o1"/>
                             <constraint firstItem="tAH-zs-u6R" firstAttribute="top" secondItem="89n-H2-8k1" secondAttribute="bottom" id="taK-Nr-Ivu"/>
                             <constraint firstAttribute="trailing" secondItem="tAH-zs-u6R" secondAttribute="trailing" id="vIi-at-hXc"/>
                         </constraints>
@@ -403,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6h-UA-FJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="1179"/>
+            <point key="canvasLocation" x="1105" y="1169"/>
         </scene>
         <!--Go to Favorite-->
         <scene sceneID="X4v-Kq-o0k">
@@ -425,10 +414,10 @@
             </objects>
             <point key="canvasLocation" x="292" y="1169"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="RmZ-BR-RD5">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d7I-Gg-8rK" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d7I-Gg-8rK" customClass="MovieViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="bXX-2P-22z">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie: Equatable {
+class Movie: NSObject, NSCoding {
     
     var posterURL: String!
     var country: String!
@@ -52,12 +52,22 @@ class Movie: Equatable {
         self.rated = rated
     }
     
-    
-    static func == (lhs: Movie, rhs: Movie) -> Bool {
-        return lhs.posterURL == rhs.posterURL && lhs.title == rhs.title && lhs.year == rhs.year
+    // In order to use UserDefaults
+    required init (coder decoder: NSCoder){
+        self.posterURL = decoder.decodeObject(forKey: "posterURL") as? String ?? ""
+        self.title = decoder.decodeObject(forKey: "title") as? String ?? ""
+        self.year = decoder.decodeObject(forKey: "year") as? String ?? ""
     }
     
+    func encode(with coder: NSCoder){
+        coder.encode(posterURL, forKey: "posterURL")
+        coder.encode(title, forKey: "title")
+        coder.encode(year, forKey: "year")
+    }
     
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.posterURL == rhs.posterURL
+    }
     
 }
 

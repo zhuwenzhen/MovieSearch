@@ -22,8 +22,9 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var releasedLabel: UILabel!
     @IBOutlet weak var imdbRatingLabel: UILabel!
 
-    
     var movie: Movie!
+    var favorite = [Movie]()
+    var delegate: favoritesUpdating?
     
     // Mark: - View
     override func viewDidLoad() {
@@ -32,9 +33,32 @@ class MovieDetailVC: UIViewController {
     
     @IBAction func addToFavorite(_ sender: Any) {
         // user default: save data
-        UserDefaults.standard.set(movie.title, forKey: "title")
-        UserDefaults.standard.set(movie.posterURL, forKey: "poster")
-        UserDefaults.standard.set(movie.year, forKey: "year")
+        if let data = UserDefaults.standard.data(forKey: "movie"), let favoriteMovieList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Movie]{
+            favorite.removeAll(keepingCapacity: false)
+            for elem in favoriteMovieList{
+                favorite.append(elem)
+            }
+            print("favorite list: \(favorite)")
+        }
+        else{
+            print("Cannot retrieve from UserDefaults")
+        }
+        
+        var exists = false
+        for testMovie in favorite {
+            if testMovie == movie {
+                exists = true
+            }
+        }
+        
+        if !exists {
+            favorite.append(movie)
+        }
+        
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: favorite)
+        UserDefaults.standard.set(encodedData, forKey: "movie")
+        
+        delegate?.updatefavorites()
     }
     
     func showPoster(movie: Movie!)-> UIImage{
@@ -91,8 +115,7 @@ class MovieDetailVC: UIViewController {
         let actors = result["Actors"].stringValue
         let rated = result["Rated"].stringValue
         
-        let movie = Movie(posterURL: posterURL, country: country, plot: plot, year: year, title: title, director: director, runtime: runtime, writer: writer, genre: genre, imdbID: imdbID, released: released,  imdbRating: imdbRating, awards: awards, actors: actors, rated: rated)
-            
+        let movie = Movie(posterURL: posterURL, country: country, plot: plot, year: year, title: title, director: director, runtime: runtime, writer: writer, genre: genre, imdbID: imdbID, released: released,  imdbRating: imdbRating, awards: awards, actors: actors, rated: rated)            
         self.updateUI(movie)
     }
 }
